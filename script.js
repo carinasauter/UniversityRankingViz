@@ -36,7 +36,7 @@ var mycfg = {
 RadarChart.draw("#chart", d, mycfg);
 
 
-// From Paul - dropdown menus
+// From Paul Glenn - dropdown menus
 
 var dispatch = d3.dispatch("load", "statechange1", "statechange2");
 d3.csv("timesData.csv", function(error, univs) {
@@ -141,6 +141,7 @@ dispatch.on("load.menu", function(univById) {
     {axis:"income score",value:univ.income/100}
     ];
   });
+
 
   dispatch.on("statechange1.radar", function(x) {
   // University 1 legend box

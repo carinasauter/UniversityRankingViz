@@ -1,6 +1,8 @@
 // this code is from Nadie Brehmer
 // http://bl.ocks.org/nbremer/6506614
 
+// some adjustments were made - especially some code was taken out and adjusted
+
 var RadarChart = {
   draw: function(id, d, options){
   var cfg = {
@@ -95,7 +97,7 @@ var RadarChart = {
 		.attr("y2", function(d, i){return cfg.h/2*(1-cfg.factor*Math.cos(i*cfg.radians/total));})
 		.attr("class", "line")
 		.style("stroke", "grey")
-		.style("stroke-width", "2px");
+		.style("stroke-width", "3px");
 
 	axis.append("text")
 		.attr("class", "legend")
@@ -103,7 +105,7 @@ var RadarChart = {
 		.style("font-family", "sans-serif")
 		.style("font-size", "11px")
 		.attr("text-anchor", "middle")
-		.attr("dy", "1.5em")
+		.attr("dy", "1em")
 		.attr("transform", function(d, i){return "translate(0, -10)"})
 		.attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-60*Math.sin(i*cfg.radians/total);})
 		.attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});
@@ -124,7 +126,7 @@ var RadarChart = {
 					 .enter()
 					 .append("polygon")
 					 .attr("class", "radar-chart-serie"+series)
-					 .style("stroke-width", "2px")
+					 .style("stroke-width", "4px")
 					 .style("stroke", cfg.color(series))
 					 .attr("points",function(d) {
 						 var str="";
@@ -142,7 +144,7 @@ var RadarChart = {
 										 .style("fill-opacity", 0.1); 
 										g.selectAll(z)
 										 .transition(200)
-										 .style("fill-opacity", .7);
+										 .style("fill-opacity", .8);
 									  })
 					 .on('mouseout', function(){
 										g.selectAll("polygon")
